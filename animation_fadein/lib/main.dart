@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:animation_fadein/fadein.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -67,9 +68,9 @@ class _Screen10State extends State<Screen10> {
           RaisedButton(
             onPressed: (){
               setState((){
-                w.add(Text("a"));
-                w.add(Text("b"));
-                w.add(Text("c"));
+                for ( int i=0 ; i<100 ; i++ ) {
+                  w.add(animationWidget(i));
+                }
               });
             },
             child: Text("Start!"),
@@ -81,4 +82,17 @@ class _Screen10State extends State<Screen10> {
       ),
     );
   }
+}
+
+Widget animationWidget(int i) {
+  return FadeinWidget(
+    child: Container(
+      color: Colors.green,
+      width: 20.0,
+      height: 20.0,
+    ),
+    size: Size(20.0, 20.0),
+    duration: 300,
+    delay: i * ( 1.0 / 100 ),
+  );
 }
