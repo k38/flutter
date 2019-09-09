@@ -17933,7 +17933,7 @@ for(u=this.a,t=u.d,s=[N.as],r=0;r<u.a.d;++r){q=H.h([],s)
 p=r*0.1
 o=1-p
 for(n=0;u.a.toString,n<50;++n){m=C.A.aF((o*n*n/2500+p)*10)
-C.a.h(q,new Q.pU(M.py(l,l,C.oc,l,l,20,l,l,20),new Q.aq(20,20),m/10,300,l))}C.a.h(t,new T.to(q,l))}},
+C.a.h(q,new Q.pU(M.py(l,l,C.oc,l,l,20,l,l,20),new Q.aq(20,20),m/10,1200,l))}C.a.h(t,new T.to(q,l))}},
 $S:0}
 Y.A8.prototype={
 h:function(a,b){var u,t,s,r,q=this

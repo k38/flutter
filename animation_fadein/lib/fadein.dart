@@ -25,19 +25,14 @@ class _FadeinWidgetState extends State<FadeinWidget> with SingleTickerProviderSt
     CurvedAnimation curvedAnimation = CurvedAnimation(
       parent: _controller,
       curve: Interval(widget.delay, 1.0, curve: Curves.fastOutSlowIn),
-      // curve: Interval(0.9, 1.0, curve: Curves.fastOutSlowIn),
-      // curve: Interval(widget.delay, widget.delay + 1.0, curve: Curves.fastOutSlowIn),
-      // curve: Interval(widget.delay, 0.5, curve: Curves.fastOutSlowIn),
     );
     _animationFade = Tween(
       begin: 0.0,
       end: 1.0,
-      // end: 100.0,
     ).animate(curvedAnimation);
     _animationScale = Tween(
       begin: 0.0,
       end: 1.0,
-      // end: 100.0,
     ).animate(curvedAnimation);
   }
 

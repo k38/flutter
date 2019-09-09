@@ -1,6 +1,5 @@
 import 'package:flutter_web/material.dart';
 import 'package:animation_fadein/fadein.dart';
-import 'dart:math';
 
 void main() {
   runApp(MaterialApp(
@@ -101,14 +100,7 @@ class _ScreenState extends State<Screen> {
     );
   }
   Widget _animationWidget(int i, int j, double a, double b) {
-    // double b = j * 0.1;
-    // double a = 1.0 - b;
-    // print([a, b]);
-    // double delay = a * pow( i / widget.number, 2 ) + b;
     double delay = ( ( a * i * i / 2500 + b ) * 10 ).round() / 10;
-
-    // double delay = i * ( 1.0 / widget.number ) + ( j * 0.1 );
-    // delay = delay > 1.0 ? 1.0 : delay;
     return FadeinWidget(
       child: Container(
         color: Colors.green,
@@ -116,7 +108,10 @@ class _ScreenState extends State<Screen> {
         height: 20.0,
       ),
       size: Size(20.0, 20.0),
-      duration: 300,
+      // duration: 300,
+      // duration: 600,
+      // duration: 900,
+      duration: 1200,
       delay: delay,
     );
   }
