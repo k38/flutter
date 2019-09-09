@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:animation_fadein/fadein.dart';
+import 'dart:math';
 
 void main() {
   runApp(MaterialApp(
@@ -11,7 +12,6 @@ void main() {
       '/2': (context) => Screen(rows: 2),
       '/5': (context) => Screen(rows: 5),
       '/10': (context) => Screen(rows: 10),
-      '/15': (context) => Screen(rows: 15),
     },
   ));
 }
@@ -50,12 +50,6 @@ class Menu extends StatelessWidget {
                 Navigator.pushNamed(context, '/10');
               },
             ),
-            RaisedButton(
-              child: Text('50 * 15'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/15');
-              },
-            ),
           ],
         ),
       ),
@@ -88,8 +82,10 @@ class _ScreenState extends State<Screen> {
               setState((){
                 for ( int j=0 ; j<widget.rows ; j++ ) {
                   List<Widget> w = <Widget>[];
+                  double b = j * 0.1;
+                  double a = 1.0 - b;
                   for ( int i=0 ; i<widget.number ; i++ ) {
-                    w.add(_animationWidget(i, j));
+                    w.add(_animationWidget(i, j, a, b));
                   }
                   wrapList.add(Wrap(
                     children: w,
@@ -104,9 +100,15 @@ class _ScreenState extends State<Screen> {
       ),
     );
   }
-  Widget _animationWidget(int i, int j) {
-    double delay = i * ( 1.0 / widget.number ) + ( j * 0.1 );
-    delay = delay > 1.0 ? 1.0 : delay;
+  Widget _animationWidget(int i, int j, double a, double b) {
+    // double b = j * 0.1;
+    // double a = 1.0 - b;
+    // print([a, b]);
+    // double delay = a * pow( i / widget.number, 2 ) + b;
+    double delay = ( ( a * i * i / 2500 + b ) * 10 ).round() / 10;
+
+    // double delay = i * ( 1.0 / widget.number ) + ( j * 0.1 );
+    // delay = delay > 1.0 ? 1.0 : delay;
     return FadeinWidget(
       child: Container(
         color: Colors.green,
