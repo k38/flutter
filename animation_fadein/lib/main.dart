@@ -98,6 +98,8 @@ class _ScreenState extends State<Screen> {
     );
   }
   Widget _animationWidget(int i, int j) {
+    double delay = i * ( 1.0 / widget.number ) + ( j * 0.1 );
+    delay = delay > 1.0 ? 1.0 : delay;
     return FadeinWidget(
       child: Container(
         color: Colors.green,
@@ -106,7 +108,7 @@ class _ScreenState extends State<Screen> {
       ),
       size: Size(20.0, 20.0),
       duration: 300,
-      delay: i * ( 1.0 / widget.number ) + ( j * 0.1 ),
+      delay: delay,
     );
   }
 }

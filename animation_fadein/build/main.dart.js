@@ -17930,9 +17930,9 @@ $S:0}
 F.Kn.prototype={
 $0:function(){var u,t,s,r,q,p,o,n,m=null
 for(u=this.a,t=u.d,s=[N.as],r=0;r<u.a.d;++r){q=H.h([],s)
-for(p=r*0.1,o=0;u.a.toString,o<10;++o){n=M.py(m,m,C.oc,m,m,20,m,m,20)
-u.a.toString
-C.a.h(q,new Q.pU(n,new Q.aq(20,20),o*0.1+p,300,m))}C.a.h(t,new T.to(q,m))}},
+for(p=r*0.1,o=0;u.a.toString,o<10;++o){n=o*0.1+p
+if(n>1)n=1
+C.a.h(q,new Q.pU(M.py(m,m,C.oc,m,m,20,m,m,20),new Q.aq(20,20),n,300,m))}C.a.h(t,new T.to(q,m))}},
 $S:0}
 Y.A8.prototype={
 h:function(a,b){var u,t,s,r,q=this
