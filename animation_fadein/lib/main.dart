@@ -7,9 +7,10 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => Menu(),
-      '/10': (context) => Screen10(),
-      // '/100': (context) => Screen100(),
-      // '/1000': (context) => Screen1000(),
+      '/1': (context) => Screen(rows: 1),
+      '/5': (context) => Screen(rows: 5),
+      '/10': (context) => Screen(rows: 10),
+      '/15': (context) => Screen(rows: 15),
     },
   ));
 }
@@ -25,21 +26,27 @@ class Menu extends StatelessWidget {
         child: Column(
           children: <Widget>[
             RaisedButton(
-              child: Text('10'),
+              child: Text("10 * 1"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/1');
+              },
+            ),
+            RaisedButton(
+              child: Text('10 * 5'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/5');
+              },
+            ),
+            RaisedButton(
+              child: Text('10 * 10'),
               onPressed: () {
                 Navigator.pushNamed(context, '/10');
               },
             ),
             RaisedButton(
-              child: Text('100'),
+              child: Text('10 * 15'),
               onPressed: () {
-                Navigator.pushNamed(context, '/100');
-              },
-            ),
-            RaisedButton(
-              child: Text('1000'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/1000');
+                Navigator.pushNamed(context, '/15');
               },
             ),
           ],
@@ -49,50 +56,57 @@ class Menu extends StatelessWidget {
   }
 }
 
-class Screen10 extends StatefulWidget {
-  Screen10({Key key}) : super(key: key);
+class Screen extends StatefulWidget {
+  final int number = 10;
+  int rows;
+  Screen({this.rows});
 
-  _Screen10State createState() => _Screen10State();
+  _ScreenState createState() => _ScreenState();
 }
 
-class _Screen10State extends State<Screen10> {
-  List<Widget> w = <Widget>[];
+class _ScreenState extends State<Screen> {
+  // List<Widget> w = <Widget>[];
+  List<Wrap> wrapList = <Wrap>[];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AnimationFadein 10"),
+        title: Text("AnimationFadein ${widget.number} * ${widget.rows}"),
       ),
       body: ListView(
         children: <Widget>[
           RaisedButton(
             onPressed: (){
               setState((){
-                for ( int i=0 ; i<100 ; i++ ) {
-                  w.add(animationWidget(i));
+                for ( int j=0 ; j<widget.rows ; j++ ) {
+                  List<Widget> w = <Widget>[];
+                  for ( int i=0 ; i<widget.number ; i++ ) {
+                    w.add(_animationWidget(i, j));
+                  }
+                  wrapList.add(Wrap(
+                    children: w,
+                  ));
                 }
               });
             },
             child: Text("Start!"),
           ),
-          Wrap(
-            children: w,
-          ),
+          ...wrapList,
         ],
       ),
     );
   }
-}
-
-Widget animationWidget(int i) {
-  return FadeinWidget(
-    child: Container(
-      color: Colors.green,
-      width: 20.0,
-      height: 20.0,
-    ),
-    size: Size(20.0, 20.0),
-    duration: 300,
-    delay: i * ( 1.0 / 100 ),
-  );
+  Widget _animationWidget(int i, int j) {
+    return FadeinWidget(
+      child: Container(
+        color: Colors.green,
+        width: 20.0,
+        height: 20.0,
+      ),
+      size: Size(20.0, 20.0),
+      duration: 300,
+      delay: i * ( 1.0 / widget.number ) + ( j * 0.1 ),
+    );
+  }
 }
