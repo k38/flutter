@@ -8,6 +8,7 @@ void main() {
     routes: {
       '/': (context) => Menu(),
       '/1': (context) => Screen(rows: 1),
+      '/2': (context) => Screen(rows: 2),
       '/5': (context) => Screen(rows: 5),
       '/10': (context) => Screen(rows: 10),
       '/15': (context) => Screen(rows: 15),
@@ -26,25 +27,31 @@ class Menu extends StatelessWidget {
         child: Column(
           children: <Widget>[
             RaisedButton(
-              child: Text("10 * 1"),
+              child: Text("20 * 1"),
               onPressed: () {
                 Navigator.pushNamed(context, '/1');
               },
             ),
             RaisedButton(
-              child: Text('10 * 5'),
+              child: Text("20 * 2"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/2');
+              },
+            ),
+            RaisedButton(
+              child: Text('20 * 5'),
               onPressed: () {
                 Navigator.pushNamed(context, '/5');
               },
             ),
             RaisedButton(
-              child: Text('10 * 10'),
+              child: Text('20 * 10'),
               onPressed: () {
                 Navigator.pushNamed(context, '/10');
               },
             ),
             RaisedButton(
-              child: Text('10 * 15'),
+              child: Text('20 * 15'),
               onPressed: () {
                 Navigator.pushNamed(context, '/15');
               },
@@ -57,7 +64,7 @@ class Menu extends StatelessWidget {
 }
 
 class Screen extends StatefulWidget {
-  final int number = 10;
+  final int number = 20;
   int rows;
   Screen({this.rows});
 
