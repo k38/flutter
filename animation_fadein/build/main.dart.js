@@ -17896,7 +17896,7 @@ return new F.fg(15,null)},
 $S:13}
 F.mH.prototype={
 V:function(a){var u=null
-return M.Qc(E.OH(L.i0("AnimationFadein",u)),new T.jY(C.a6,u,u,T.TD(H.h([D.n7(L.i0("20 * 1",u),new F.BJ(a)),D.n7(L.i0("20 * 2",u),new F.BK(a)),D.n7(L.i0("20 * 5",u),new F.BL(a)),D.n7(L.i0("20 * 10",u),new F.BM(a)),D.n7(L.i0("20 * 15",u),new F.BN(a))],[N.as]),C.i3),u))}}
+return M.Qc(E.OH(L.i0("AnimationFadein",u)),new T.jY(C.a6,u,u,T.TD(H.h([D.n7(L.i0("50 * 1",u),new F.BJ(a)),D.n7(L.i0("50 * 2",u),new F.BK(a)),D.n7(L.i0("50 * 5",u),new F.BL(a)),D.n7(L.i0("50 * 10",u),new F.BM(a)),D.n7(L.i0("50 * 15",u),new F.BN(a))],[N.as]),C.i3),u))}}
 F.BJ.prototype={
 $0:function(){K.qD(this.a,"/1",P.D)},
 $C:"$0",
@@ -17925,7 +17925,7 @@ $S:0}
 F.fg.prototype={
 b3:function(){return new F.Kn(H.h([],[T.tp]),C.t)}}
 F.Kn.prototype={
-V:function(a){var u,t,s,r=null,q=E.OH(L.i0("AnimationFadein 20 * "+this.a.d,r)),p=H.h([],[N.as])
+V:function(a){var u,t,s,r=null,q=E.OH(L.i0("AnimationFadein 50 * "+this.a.d,r)),p=H.h([],[N.as])
 C.a.h(p,D.n7(L.i0("Start!",r),new F.Kp(this)))
 for(u=this.d,t=u.length,s=0;s<u.length;u.length===t||(0,H.V)(u),++s)C.a.h(p,u[s])
 u=P.bF([null,0],D.f1,P.q)
@@ -17941,7 +17941,7 @@ $S:0}
 F.Ko.prototype={
 $0:function(){var u,t,s,r,q,p,o,n,m=null
 for(u=this.a,t=u.d,s=[N.as],r=0;r<u.a.d;++r){q=H.h([],s)
-for(p=r*0.1,o=0;u.a.toString,o<20;++o){n=o*0.05+p
+for(p=r*0.1,o=0;u.a.toString,o<50;++o){n=o*0.02+p
 if(n>1)n=1
 C.a.h(q,new Q.pV(M.pz(m,m,C.oc,m,m,20,m,m,20),new Q.aq(20,20),n,300,m))}C.a.h(t,new T.tp(q,m))}},
 $S:0}

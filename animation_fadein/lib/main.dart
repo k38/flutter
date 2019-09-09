@@ -27,31 +27,31 @@ class Menu extends StatelessWidget {
         child: Column(
           children: <Widget>[
             RaisedButton(
-              child: Text("20 * 1"),
+              child: Text("50 * 1"),
               onPressed: () {
                 Navigator.pushNamed(context, '/1');
               },
             ),
             RaisedButton(
-              child: Text("20 * 2"),
+              child: Text("50 * 2"),
               onPressed: () {
                 Navigator.pushNamed(context, '/2');
               },
             ),
             RaisedButton(
-              child: Text('20 * 5'),
+              child: Text('50 * 5'),
               onPressed: () {
                 Navigator.pushNamed(context, '/5');
               },
             ),
             RaisedButton(
-              child: Text('20 * 10'),
+              child: Text('50 * 10'),
               onPressed: () {
                 Navigator.pushNamed(context, '/10');
               },
             ),
             RaisedButton(
-              child: Text('20 * 15'),
+              child: Text('50 * 15'),
               onPressed: () {
                 Navigator.pushNamed(context, '/15');
               },
@@ -64,7 +64,7 @@ class Menu extends StatelessWidget {
 }
 
 class Screen extends StatefulWidget {
-  final int number = 20;
+  final int number = 50;
   int rows;
   Screen({this.rows});
 
